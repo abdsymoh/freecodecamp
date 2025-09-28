@@ -1,172 +1,97 @@
-# Build a Cat Photo App:
 
-In this workshop, you will continue working with basic HTML elements like headings, paragraphs, and lists by building a cat photo app.
+# 🇦🇪 ورشة تطبيق صور القطط: إتقان أساسيات HTML
 
-## Commenting
+مرحباً بك في ورشة عمل **تطبيق صور القطط**\! سنتعمق في البنية الأساسية لتطوير الويب من خلال بناء تطبيق بسيط، مُيسَّر الوصول، وصديق لمحركات البحث (SEO) باستخدام عناصر HTML الأساسية. فهم هذه الأساسيات أمر بالغ الأهمية لأي مشروع ويب ناجح.
 
-Commenting allows you to leave messages without affecting the browser display. It also allows you to make code inactive. A comment in HTML starts with `<!--`, contains any number of lines of text, and ends with `-->`.
+## هيكلة المستند ومحتواه الأولي (Boilerplate)
 
-Here is an example of a comment with the `TODO: Remove h1`:
+يبدأ كل مستند HTML بإعلان **`<!DOCTYPE html>`**، الذي يحدد أن المستند هو HTML5. يليه مباشرةً عنصر **`<html>`**، وهو **العنصر الجذر (root)** للمستند ويجب أن يغلف جميع المحتويات الأخرى. قم دائمًا بتضمين **خاصية `lang`** في وسم `<html>` لتحسين إمكانية الوصول ونتائج محركات البحث، على سبيل المثال: `<html lang="ar">`.
 
-`<!-- TODO: Remove h1 -->`
+### `head`: البيانات الوصفية والإعدادات
 
-## Search Engine Optimization (SEO) and accessibility
+يحتوي عنصر **`<head>`** على **البيانات الوصفية (metadata)**— وهي بيانات حول مستند HTML لا يتم عرضها على الصفحة نفسها.
 
-HTML5 has some elements that identify different content areas. These elements make your HTML easier to read and help with Search Engine Optimization (SEO) and accessibility.
+  * **`<title>`**: يحدد العنوان الذي يظهر في شريط عنوان المتصفح أو علامة التبويب. هذا العنصر حيوي لتجربة المستخدم وتحسين محركات البحث (SEO).
+    ```html
+    <title>معرض صور القطط</title>
+    ```
+  * **`<meta>`**: يُستخدم لتحديد سلوك المتصفح وإعدادات المستند الأخرى. أحد علامات الميتا الرئيسية هو **إعداد منفذ العرض (viewport setting)** للتصميم المتجاوب (Responsive Design):
+    ```html
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ```
 
-The `main` element is used to represent the main content of the body of an HTML document. Content inside the `main` element should be unique to the document and should not be repeated in other parts of the document.
+### `body`: المحتوى
 
-### Example Code
+يحتوي عنصر **`<body>`** على جميع محتويات الصفحة التي يعرضها المتصفح.
 
-```
-<main>
-  <h1>Most important content of the document</h1>
-  <p>Some more important content...</p>
-</main>
-```
+-----
 
-## Nesting in HTML
+## HTML الدلالي (Semantic HTML) للهيكلة وإمكانية الوصول (A11y)
 
-put the `h1`, `h2`, `comment`, and `p` elements inside the main element. This is called `nesting`.
+يشجع HTML الحديث على استخدام **العناصر الدلالية (semantic elements)** لتحديد الغرض من المحتوى بوضوح. هذا يمثل نقلة نوعية لتحسين **محركات البحث (SEO)** و **إمكانية الوصول**.
 
-Nested elements should be placed two spaces further to the right of the element they are nested in. This spacing is called indentation and it is used to make HTML easier to read.
+### عنصر `main`
 
-### Example Code
+يغلف عنصر **`<main>`** المحتوى **الفريد** أو **الرئيسي** للمستند. يجب ألا يتكرر المحتوى الموجود هنا في أجزاء أخرى من الموقع (مثل الأشرطة الجانبية أو التنقل).
 
-```
-<main>
-  <h1>Most important content of the document</h1>
-  <p>Some more important content...</p>
-</main>
-```
+  * **التعشيش (Nesting) والمسافة البادئة (Indentation)**: تسمى العناصر الموضوعة داخل عناصر أخرى **معشّشة (nested)**. استخدم **مسافة بادئة (indentation)** ثابتة (عادةً مسافتين) لتمثيل هذا التسلسل الهرمي بصريًا، مما يحسن بشكل كبير من سهولة قراءة الكود.
 
-## `img` in HTML
+### عنصر `section`
 
-You can add images to your website by using the `img` element. `img` elements have an opening tag without a closing tag. An element without a closing tag is known as a void element.
+عنصر **`<section>`** هو عنصر تقطيع عام يستخدم لتجميع المحتوى ذي الصلة، مثل فصل أو منطقة ذات طابع موضوعي مميز. من أفضل الممارسات تضمين **عنصر عنوان (`<h2>`، `<h3>`، إلخ)** داخل كل `<section>` لتوفير السياق.
 
-HTML `attributes` are special words used inside the opening tag of an element to control the element's behavior. The `src` attribute in an `img` element specifies the image's URL (`where the image is located`).
+### عنصر `footer`
 
-### Example Code
+يحتوي عنصر **`<footer>`** عادةً على معلومات التأليف، وبيانات حقوق النشر (حقوق الطبع)، وروابط الاتصال، والمعلومات القانونية (مثل شروط الاستخدام).
 
-`<img src="https://cdn.freecodecamp.org/platform/universal/fcc_secondary.svg">`
+-----
 
-All `img` elements should have an `alt` attribute. The `alt` attribute's text is used for screen readers to improve accessibility and is displayed if the image fails to load.
+## عناصر المحتوى
 
-### Example Code
+### العناوين (`<h1>` - `<h6>`) والفقرات (`<p>`)
 
-`<img src="cat.jpg" alt="A cat">`
+استخدم العناوين لإنشاء تسلسل هرمي واضح للمحتوى. يجب أن يكون هناك **عنوان `<h1>` واحد فقط** في الصفحة، يمثل الموضوع الرئيسي للصفحة. تحدد العناوين ذات الرتبة الأدنى (`<h2>`، `<h3>`، إلخ) الأقسام الفرعية. تُستخدم الفقرات (`<p>`) لتنظيم النص على مستوى الكتلة.
 
-## Anchor (`a`) in HTML
+### القوائم (`<ul>`، `<li>`، `ol`)
 
-You can link to another page with the anchor (`a`) element.
+  * **`<ul>` (قائمة غير مرتبة)**: تُستخدم للقوائم التي لا يهم فيها الترتيب (مثل قائمة حقائق عن القطط).
+  * **`<ol>` (قائمة مرتبة)**: تُستخدم للعناصر المتسلسلة التي **يكون** فيها الترتيب مهمًا (مثل خطوات وصفة طعام قطط).
+  * **`<li>` (عنصر القائمة)**: العنصر المستخدم لكل عنصر فردي داخل القائمة.
 
-### Example Code
+### تنسيق النص والتشديد
 
-`<a href="https://www.freecodecamp.org"></a>`
+  * **`<strong>`**: يشير إلى نص ذي **أهمية قصوى** أو عاجل (يُعرض غالبًا بخط عريض).
+  * **`<em>`**: يضع **تشديدًا** على النص، مما يشير إلى تغيير في المعنى إذا تم حذف التشديد (يُعرض غالبًا بخط مائل).
 
-A link's text must be placed between the `opening` and `closing` tags of an anchor (`a`) element.
+-----
 
-### Example Code
+## عناصر التفاعل والوسائط
 
-`<a href="https://www.freecodecamp.org">click here to go to freeCodeCamp.org</a>`
+### عنصر `img` (الصورة)
 
-To open links in a new tab, you can use the `target` attribute on the anchor (`a`) element.
+عنصر **`<img>`** هو **عنصر فراغي (void element)** (ليس له وسم إغلاق). وهو ضروري لعرض الصور.
 
-The `target` attribute specifies where to open the linked document. `target="_blank"` opens the linked document in a new tab or window.
+  * **خاصية `src`**: تحدد **رابط URL** (المصدر) لملف الصورة.
+  * **خاصية `alt`**: **إلزامية** لتمكين الوصول. توفر وصفًا نصيًا لقارئات الشاشة وتُعرض إذا فشل تحميل الصورة. *استخدم دائمًا نص بديل وصفي.*
 
-### Example Code
+### `figure` و `figcaption`
 
-`<a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a>`
+للصور المصحوبة بتعليقات توضيحية، استخدم عنصر **`<figure>`** لاحتواء الصورة، وعنصر **`<figcaption>`** لاحتواء النص الوصفي. هذا يربط الصورة وتعليقها دلاليًا.
 
-Other types of content can also be turned into a link by wrapping it in anchor tags.
+### عنصر `a` (الرابط التشعبي)
 
-### Example Code
+يُنشئ عنصر **`<a>`** رابطًا تشعبيًا.
 
-```
-<a href="example-link">
-  <img src="image-link.jpg" alt="A photo of a cat.">
-</a>
-```
+  * **خاصية `href`**: تحدد **رابط URL** الوجهة (هدف الرابط).
+  * **نص الرابط**: يجب وضع النص القابل للنقر *بين* وسمي الفتح والإغلاق.
+  * **`target="_blank"`**: استخدم هذه الخاصية لجعل الرابط يفتح في **علامة تبويب/نافذة جديدة**.
+  * **ربط الوسائط**: يمكنك لف أي محتوى، بما في ذلك وسم `<img>`، داخل عنصر `<a>` لتحويله إلى رابط قابل للنقر.
 
-## `section` in HTML
+-----
 
-The `section` element is used to define sections in a document, such as chapters, headers, footers, or any other sections of the document. It is a semantic element that helps with SEO and accessibility.
+## إدارة الكود: التعليقات
 
-### Example Code
+**التعليق** (\`\`) هو ممارسة حيوية للتوثيق وتصحيح الأخطاء. تكون التعليقات غير مرئية للمتصفح ولكنها تسمح لك بما يلي:
 
-```
-<section>
-  <h2>Section Title</h2>
-  <p>Section content...</p>
-</section>
-```
-
-When you add a lower-rank heading element to the page, it's implied that you're starting a new subsection.
-
-## `ul`, `ol` and `li` in HTML
-
-To create an unordered list of items, you can use the `ul` element.
-
-The `li` element is used to create a list item in an ordered or unordered list.
-
-The code for an ordered list (`ol`) is similar to an unordered list, but list items in an ordered list are numbered when displayed.
-
-## `figure` in HTML
-
-The `figure` element represents self-contained content and will allow you to associate an image with a caption.
-
-A figure caption (`figcaption`) element is used to add a caption to describe the image contained within the `figure` element.
-
-## Text formatting in HTML
-
-To place emphasis on a specific word or phrase, you can use the `em` element.
-
-The `strong` element is used to indicate that some text is of strong importance or urgent.
-
-## `footer` in HTML
-
-The `footer` element is used to define a footer for a document or section. A footer typically contains information about the author of the document, copyright data, links to terms of use, contact information, and more.
-
-## `head` in HTML
-
-All page content elements that should be rendered to the page go inside the `body` element. However, other important information goes inside the `head` element.
-
-The `head` element is used to contain metadata about the document, such as its title, links to stylesheets, and scripts. Metadata is information about the page that isn't displayed directly on the page.
-
-## `title` in HTML
-
-The `title` element determines what browsers show in the title bar or tab for the page.
-
-## `html` in HTML
-
-The `html` element is the root element of an HTML page and wraps all content on the page.
-
-The entire contents of the page are nested within an `html` element.
-
-You can also specify the language of your page by adding the `lang` attribute to the `html` element.
-
-## `<!DOCTYPE html>` in HTML
-
-All pages should begin with `<!DOCTYPE html>`. This special string is known as a declaration and ensures the browser tries to meet industry-wide specifications.
-
-`<!DOCTYPE html>` tells browsers that the document is an HTML5 document which is the latest version of HTML.
-
-## `meta` in HTML
-
-You can set browser behavior by adding `meta` elements in the `head`.
-
-### Example Code
-
-`<meta attribute="value">`
-
-Note that the `meta` element is a void element.
-
-
-
-
-
-
-
-
-
-
+1.  ترك ملاحظات للمطورين الآخرين (أو لذاتك المستقبلية).
+2.  تعطيل كتل من الكود مؤقتًا (إضافة تعليق).
